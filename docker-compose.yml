@@ -1,18 +1,16 @@
 version: '3'
-
 services:
-  chefware-db:
+  mysql:
+    container_name: bancoChefware
     image: mysql:latest
     restart: always 
-    volumes:
-      - db_data:/var/lib/mysql
-    ports:
-      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 9090
       MYSQL_USER: root
       MYSQL_DATABASE: chefware
-    expose:
-        - "3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
 volumes:
-  db_data:
+  mysql_data:
